@@ -2,12 +2,12 @@ package classes;
 
 import java.util.ArrayList;
 
-public class Venda {
+public class Produto {
 	private String NomeProduto;
 	private double Preço;
 
 	
-	public Venda(String produto, double preço) {
+	public Produto(String produto, double preço) {
 		NomeProduto = produto;
 		Preço = preço;
 	}
@@ -29,12 +29,25 @@ public class Venda {
 	}
 	
 	
-	public static void calculoFechamento (ArrayList<Double> Array) {
+	public static double calculoFechamento (ArrayList<Double> Array) {
 		double ValorFechamento = 0.0;
 		for (Double venda : Array) {
 			ValorFechamento += venda;
 		}
-		System.out.println("O valor das vendas de hoje foi R$" + ValorFechamento + "!");
+		return  ValorFechamento;
 	}
+	
+	public static double calculoTicket(ArrayList<Double> Array) {
+		double media = 0;
+		for (Double venda : Array) {
+			media = calculoFechamento(Array)/Array.size();
+			
+		}
+		return media;
+	
+	}
+	
+	
+
 	
 }
